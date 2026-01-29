@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irma Mesa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sand: #e8e3dc;
+            --charcoal: #2a2420;
+            --gray: #6a6a6a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--sand);
+            color: var(--charcoal);
+            line-height: 1.6;
+            font-size: 16px;
+            padding: 40px 24px;
+        }
+
+        .panel {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fafafa;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Header */
+        .panel-header {
+            padding: 32px 40px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .panel-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--charcoal);
+        }
+
+        .panel-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .panel-links a {
+            font-size: 14px;
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .panel-links a:hover {
+            color: var(--charcoal);
+        }
+
+        /* Content */
+        .panel-content {
+            padding: 40px;
+        }
+
+        /* Intro */
+        .intro-block {
+            margin-bottom: 56px;
+        }
+
+        .intro-block h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            color: var(--charcoal);
+        }
+
+        .intro-block p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .intro-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Section Label */
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        /* Two Column Grid */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            margin-bottom: 56px;
+        }
+
+        .col h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+
+        .col ul {
+            list-style: none;
+        }
+
+        .col li {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 4px;
+        }
+
+        /* Work List */
+        .work-list {
+            margin-bottom: 56px;
+        }
+
+        .work-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .work-item:first-child {
+            padding-top: 0;
+        }
+
+        .work-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .work-item h4 {
+            font-family: 'EB Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+
+        .work-item p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--gray);
+        }
+
+        .work-item a {
+            font-size: 14px;
+            color: var(--charcoal);
+            text-decoration: none;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 1px;
+            margin-top: 8px;
+            display: inline-block;
+        }
+
+        .work-year {
+            font-size: 14px;
+            color: var(--gray);
+            white-space: nowrap;
+        }
+
+        /* Contact */
+        .contact-section {
+            padding-top: 32px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-section a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 15px;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
+            transition: opacity 0.2s ease;
+        }
+
+        .contact-section a:hover {
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 24px 16px;
+            }
+
+            .panel-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+                padding: 24px;
+            }
+
+            .panel-content {
+                padding: 24px;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .work-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .work-year {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <!-- Header -->
+        <div class="panel-header">
+            <div class="panel-title">Irma Mesa</div>
+            <div class="panel-links">
+                <a href="https://linkedin.com/in/irmamesa" target="_blank">LinkedIn</a>
+                <a href="https://justlento.com" target="_blank">Lento</a>
+                <a href="mailto:irma@justirma.com">Contact</a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="panel-content">
+            <!-- Intro -->
+            <div class="intro-block">
+                <h1>I'm a product manager from Charlotte with seven years building B2B SaaS and fintech products.</h1>
+                <p>
+                    Currently managing seven products at fraction. I specialize in API integrations, 
+                    platform consolidation, and cross-functional leadership.
+                </p>
+                <p>
+                    I also run Lento—cafecito and composting focused on community and slowing down. 
+                    My PM work funds the community stuff I care about.
+                </p>
+            </div>
+
+            <!-- Expertise & Services -->
+            <div class="section-label">Expertise & Services</div>
+            <div class="two-col">
+                <div class="col">
+                    <h3>Product Management</h3>
+                    <ul>
+                        <li>API Integrations</li>
+                        <li>Platform Consolidation</li>
+                        <li>Cross-functional Leadership</li>
+                        <li>0-to-1 Products</li>
+                        <li>B2B SaaS & Fintech</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>What I Offer</h3>
+                    <ul>
+                        <li>Contract PM ($100-110/hr)</li>
+                        <li>Slow Build: AI Mentorship</li>
+                        <li>Advisory & Coaching</li>
+                        <li>30 hours/week availability</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Recent Work -->
+            <div class="section-label">Recent Work</div>
+            <div class="work-list">
+                <div class="work-item">
+                    <div>
+                        <h4>PM Feedback Analyzer</h4>
+                        <p>React tool using Claude API. Paste messy feedback, get it categorized automatically. Built in two hours.</p>
+                        <a href="https://pm-feedback-analyzer.vercel.app/" target="_blank">View live</a>
+                    </div>
+                    <div class="work-year">2024</div>
+                </div>
+
+                <div class="work-item">
+                    <div>
+                        <h4>Pre-Read Generator</h4>
+                        <p>Automated meeting pre-reads that extract decisions, actions, and blockers from transcripts. Saves fifteen to twenty minutes per meeting.</p>
+                    </div>
+                    <div class="work-year">2024</div>
+                </div>
+
+                <div class="work-item">
+                    <div>
+                        <h4>MeetCafecito.com</h4>
+                        <p>Virtual coffee platform launched during the pandemic. Zero-to-one product for remote workers.</p>
+                    </div>
+                    <div class="work-year">2020</div>
+                </div>
+
+                <div class="work-item">
+                    <div>
+                        <h4>Lento</h4>
+                        <p>Cafecito and composting business in Charlotte. Building community spaces where people slow down.</p>
+                    </div>
+                    <div class="work-year">2024-Present</div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-section">
+                <p style="color: var(--gray); font-size: 15px; margin-bottom: 16px;">
+                    Available for PM consulting and Slow Build cohorts. <a href="https://calendly.com/your-link" target="_blank">Book a call</a> or <a href="mailto:irma@justirma.com">send an email</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
